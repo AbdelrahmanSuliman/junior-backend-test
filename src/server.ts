@@ -2,6 +2,10 @@ import express from "express";
 import mongoose from "mongoose";
 import logger from "./util/logger";
 import config from "./config/config";
+import authRouter from "./routes/auth.routes"
+import { Request, Response, NextFunction } from "express";
+import { authenticateToken, authorizeRole } from "./middleware/jwt.middleware";
+
 
 const app = express();
 app.use(express.json());
@@ -12,3 +16,6 @@ mongoose
   .catch((err) => logger.error(`MongoDB connection error: ${err}`));
 
 app.listen(3000, () => console.log("Server running on port 3000"));
+
+app.use("/api/auth", authRouter)
+
