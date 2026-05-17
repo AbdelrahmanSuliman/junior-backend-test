@@ -10,8 +10,8 @@ const userSchema = new Schema({
     enum: ["user", "admin"] as const,
     default: "user",
     required: true,
-  }
-});
+  },
+}, {timestamps: true});
 
 
 
