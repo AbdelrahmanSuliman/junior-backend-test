@@ -36,7 +36,7 @@ export const authenticateToken = (
 
   if (!token) {
     return res.status(401).json({
-      message: "Unauthorized. No token provided.",
+      message: "Unauthorized. No token provided",
     });
   }
 
